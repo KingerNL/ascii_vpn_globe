@@ -1,5 +1,9 @@
 # Rotating Earth
 
+[![Rotating Earth demo](./misc/demo-preview.webp)](./misc/recording-20260809-103552.mp4)
+
+[Watch the MP4 demo](./misc/recording-20260809-103552.mp4)
+
 An interactive terminal globe rendered with Unicode Braille characters. It
 rotates automatically, responds to mouse dragging, and displays NordVPN server
 cities over a static starfield.
