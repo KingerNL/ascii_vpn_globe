@@ -290,17 +290,27 @@ class BrailleRendererTests(unittest.TestCase):
 class BoundaryTests(unittest.TestCase):
     def test_requested_boundary_data_is_bundled(self) -> None:
         labels = [label for label, _ in earth.BORDER_LINES]
-        self.assertEqual(len(labels), 12)
-        self.assertEqual(sum(len(points) for _, points in earth.BORDER_LINES), 179)
+        self.assertEqual(len(labels), 20)
+        self.assertEqual(sum(len(points) for _, points in earth.BORDER_LINES), 328)
         self.assertIn("United States-Canada (mainland)", labels)
         self.assertIn("United States-Canada (Alaska)", labels)
         self.assertIn("Russia-Finland", labels)
         self.assertIn("Russia-Ukraine", labels)
+        self.assertIn("Russia-Kazakhstan", labels)
+        self.assertIn("Russia-China (west)", labels)
+        self.assertIn("Russia-China (east)", labels)
+        self.assertIn("Russia-Mongolia", labels)
+        self.assertIn("Russia-North Korea", labels)
+        self.assertIn("Iran-Turkmenistan", labels)
+        self.assertIn("Iran-Afghanistan", labels)
+        self.assertIn("Iran-Pakistan", labels)
 
-    def test_internal_borders_project_in_america_and_europe(self) -> None:
+    def test_internal_borders_project_in_each_region(self) -> None:
         views = (
             (math.radians(-100.0), math.radians(50.0)),
             (math.radians(30.0), math.radians(55.0)),
+            (math.radians(100.0), math.radians(50.0)),
+            (math.radians(60.0), math.radians(32.0)),
         )
         for yaw, pitch in views:
             with self.subTest(yaw=yaw):
